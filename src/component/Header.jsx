@@ -9,22 +9,22 @@ const Header = () => {
 
     window.scrollTo({
       left: 0,
-      top: location - 66,
+      top: location - 68,
     });
   };
 
   return (
-    <nav className=" containe mx-auto px-20 py-[20px] shadow-md sticky top-0  bg-indigo-600">
+    <nav className=" mx-auto px-20 py-[20px] shadow-md sticky top-0  bg-indigo-600">
       <div className="flex items-center justify-between">
         <div className="font-bold text-lg">FARHAN NAZIR</div>
-        <div className="hidden md:flex space-x-6 text-lg font-bold">
-          <a href="#home" onClick={handleClick}>
+        <div className="hidden md:flex space-x-6 text-lg font-bold ">
+          <a href="#home" onClick={handleClick} className="hover:text-cyan-500">
             Home
           </a>
-          <a href="#work" onClick={handleClick}>
+          <a href="#work" onClick={handleClick}  className="hover:text-cyan-500">
             Work
           </a>
-          <a href="#about" onClick={handleClick}>
+          <a href="#about" onClick={handleClick}  className="hover:text-cyan-500">
             About
           </a>
         </div>
