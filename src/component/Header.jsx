@@ -2,16 +2,31 @@ import React from "react";
 import Logo from "../img/logo.png";
 
 const Header = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
+    const target = e.target.getAttribute("href");
+    const location = document.querySelector(target).offsetTop;
+
+    window.scrollTo({
+      left: 0,
+      top: location - 66,
+    });
+  };
+
   return (
-    <nav className="relative containe mx-auto px-20 shadow-md">
+    <nav className=" containe mx-auto px-20 py-[20px] shadow-md sticky top-0  bg-indigo-600">
       <div className="flex items-center justify-between">
-        <div className="">
-          <img src={Logo} alt="" className="h-20 w-22 pt-2" />
-        </div>
+        <div className="font-bold text-lg">FARHAN NAZIR</div>
         <div className="hidden md:flex space-x-6 text-lg font-bold">
-          <a href="#">Home</a>
-          <a href="#">Work</a>
-          <a href="#">About</a>
+          <a href="#home" onClick={handleClick}>
+            Home
+          </a>
+          <a href="#work" onClick={handleClick}>
+            Work
+          </a>
+          <a href="#about" onClick={handleClick}>
+            About
+          </a>
         </div>
       </div>
     </nav>
