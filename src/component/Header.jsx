@@ -1,13 +1,14 @@
 import React, { useState, Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
+import useDarkMode from "../useDarkMode";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 const Header = () => {
-  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [colorTheme, setTheme] = useDarkMode();
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -16,39 +17,77 @@ const Header = () => {
 
     window.scrollTo({
       left: 0,
-      top: location - 68,
+      top: location - 64,
     });
   };
 
-  function showSettings(event) {
-    event.preventDefault();
-  }
-
   return (
-    <nav className=" mx-auto px-20 py-[20px] shadow-md sticky top-0 bg-white ">
-      <div className="flex items-center justify-between">
-        <div className="font-bold text-lg">FARHAN NAZIR</div>
-        <div className="hidden md:flex space-x-6 text-lg font-bold ">
-          <a href="#home" onClick={handleClick} className="hover:text-cyan-500">
-            Home
-          </a>
-          <a href="#work" onClick={handleClick} className="hover:text-cyan-500">
-            Work
-          </a>
-          <a
-            href="#about"
-            onClick={handleClick}
-            className="hover:text-cyan-500"
-          >
-            About
-          </a>
+    <nav className=" mx-auto px-20  shadow-md sticky top-0 bg-white transition-colors duration-700 dark:bg-gray-900 ">
+      <div className="flex items-center justify-between h-16">
+        <div className="font-bold text-lg ">FARHAN NAZIR</div>
+        <div className="flex items-center space-x-6">
+          <div className="hidden md:flex space-x-6 text-lg font-bold ">
+            <a
+              href="#home"
+              onClick={handleClick}
+              className="hover:text-cyan-500"
+            >
+              Home
+            </a>
+            <a
+              href="#work"
+              onClick={handleClick}
+              className="hover:text-cyan-500"
+            >
+              Work
+            </a>
+            <a
+              href="#about"
+              onClick={handleClick}
+              className="hover:text-cyan-500"
+            >
+              About
+            </a>
+          </div>
+          {colorTheme === "light" ? (
+            <svg
+              onClick={() => setTheme("light")}
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-10 w-10 text-indigo-200"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+              />
+            </svg>
+          ) : (
+            <svg
+              onClick={() => setTheme("dark")}
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-10 w-10 text-gray-900"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              />
+            </svg>
+          )}
         </div>
         <Menu as="div" className="md:hidden relative inline-block text-left">
           <div>
-            <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-3 py-0.5 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
-              Options
+            <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm p-0.75 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
               <ChevronDownIcon
-                className="-mr-1 ml-2 h-5 w-5"
+                className=" h-[40px] w-[40px]"
                 aria-hidden="true"
               />
             </Menu.Button>
