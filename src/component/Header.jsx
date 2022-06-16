@@ -24,8 +24,8 @@ const Header = () => {
   return (
     <nav className=" mx-auto px-6 md:px-20 dark:text-cyan-300 shadow-md sticky top-0 bg-white transition-colors duration-700 dark:bg-gray-900 ">
       <div className="flex items-center justify-between h-16">
-        <div className="font-bold text-lg  ">FARHAN NAZIR</div>
-        <div className="flex items-center space-x-6">
+        <div className="font-bold text-base  ">FARHAN NAZIR</div>
+        <div className="flex items-center md:space-x-6 space-x-3">
           <div className="hidden md:flex space-x-6 text-lg font-bold ">
             <a
               href="#home"
@@ -49,46 +49,45 @@ const Header = () => {
               About
             </a>
           </div>
-          {colorTheme === "light" ? (
-            <svg
-              onClick={() => setTheme("light")}
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-10 w-10 text-indigo-200"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-              />
-            </svg>
-          ) : (
-            <svg
-              onClick={() => setTheme("dark")}
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-10 w-10 text-gray-900"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-              />
-            </svg>
-          )}
+          <div className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm p-0.75 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+            {colorTheme === "light" ? (
+              <svg
+                onClick={() => setTheme("light")}
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-[20px] w-[20px] m-2  "
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                />
+              </svg>
+            ) : (
+              <svg
+                onClick={() => setTheme("dark")}
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-[20px] w-[20px] m-2  text-gray-900"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                />
+              </svg>
+            )}
+          </div>
           <Menu as="div" className="md:hidden relative inline-block text-left">
             <div>
               <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm p-0.75 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
-                <ChevronDownIcon
-                  className=" h-[40px] w-[40px]"
-                  aria-hidden="true"
-                />
+                <ChevronDownIcon className=" h-[20px] w-[20px] m-2 " />
               </Menu.Button>
             </div>
 
@@ -101,7 +100,7 @@ const Header = () => {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <Menu.Items className="origin-top-right absolute right-0 mt-[13px] w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <div className="py-1">
                   <Menu.Item>
                     {({ active }) => (
