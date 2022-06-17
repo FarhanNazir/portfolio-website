@@ -16,13 +16,13 @@ const Header = () => {
 
     window.scrollTo({
       left: 0,
-      top: location - 48,
+      top: location - 56,
     });
   };
 
   return (
     <nav className=" mx-auto px-2 md:px-20 dark:text-white shadow-md sticky top-0 bg-white transition-colors duration-700 dark:bg-gray-800 ">
-      <div className="flex items-center justify-between h-12">
+      <div className="flex items-center justify-between h-14">
         <div className="font-bold text-base flex items-center  gap-1 m-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
